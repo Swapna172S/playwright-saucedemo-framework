@@ -1,6 +1,6 @@
 
 export class InventoryPage {
-  constructor(private page) {}
+  constructor(private page: Page) {}
 
   addToCartButton = (item: string) =>
     this.page.locator(`text=${item}`).locator('..').getByRole('button');
