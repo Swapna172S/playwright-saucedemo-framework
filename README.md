@@ -101,4 +101,10 @@ Visual testing
 CI pipeline
 Maintainable structure
 
+Prerequisite:
+
+
+npm init -y   // if not already done
+npm install -D @playwright/test
+npx playwright install
 
