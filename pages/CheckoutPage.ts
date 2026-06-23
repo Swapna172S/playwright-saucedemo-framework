@@ -1,6 +1,6 @@
 
 export class CheckoutPage {
-  constructor(private page) {}
+  constructor(private page: Page) {}
 
   async fillDetails() {
     await this.page.fill('#first-name', 'Test');
