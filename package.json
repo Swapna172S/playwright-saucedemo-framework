@@ -1,0 +1,14 @@
+
+{
+  "name": "playwright-saucedemo-framework",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "report": "playwright show-report",
+    "setup:auth": "node setup/auth.setup.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0"
+  }
+}
