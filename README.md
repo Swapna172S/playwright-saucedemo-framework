@@ -11,14 +11,13 @@ This project demonstrates a production-grade Playwright automation framework cov
 - Visual regression testing
 - CI/CD integration
 
----
 
 ##  Prerequisites
 
 - Node.js (v18+)
 - npm
 
----
+
 
 ##  Setup Instructions
 
@@ -31,7 +30,7 @@ This project demonstrates a production-grade Playwright automation framework cov
 3. Install browsers:
    npx playwright install
 
----
+
 
 ##  Generate Login Session (IMPORTANT)
 
@@ -40,7 +39,7 @@ npm run setup:auth
 
 This creates storageState.json to reuse login session.
 
----
+
 
 ##  Execute Tests
 
@@ -50,14 +49,14 @@ npm test
 Run in headed mode:
 npm run test:headed
 
----
+
 
 ##  Reports
 
 View HTML report:
 npm run report
 
----
+
 
 ##  CI Execution
 
@@ -66,7 +65,7 @@ GitHub Actions pipeline:
 - Generates reports
 - Uploads artifacts
 
----
+
 
 ##  Debug Failures
 
@@ -76,7 +75,7 @@ npx playwright test --trace=on
 Open trace:
 npx playwright show-trace trace.zip
 
----
+
 
 ##  Framework Design Highlights
 
@@ -86,7 +85,6 @@ npx playwright show-trace trace.zip
 - Retry handling (CI stability)
 - Visual test validation
 
----
 
 ##  Notes
 
