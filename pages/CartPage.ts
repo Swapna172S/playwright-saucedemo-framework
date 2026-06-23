@@ -1,6 +1,6 @@
 
 export class CartPage {
-  constructor(private page) {}
+  constructor(private page: Page) {}
 
   checkoutBtn = this.page.getByRole('button', { name: 'Checkout' });
 
