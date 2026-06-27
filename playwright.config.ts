@@ -1,4 +1,3 @@
-
 import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
@@ -8,7 +7,7 @@ export default defineConfig({
 
   use: {
     baseURL: 'https://www.saucedemo.com',
-    headless: true,
+    headless: false,
     screenshot: 'only-on-failure',
     trace: 'on-first-retry',
     video: 'retain-on-failure'
