@@ -1,27 +1,16 @@
-import { test, expect } from '../../fixtures/authFixture';
-import { InventoryPage } from '../../pages/InventoryPage';
-import { CartPage } from '../../pages/CartPage';
-import { CheckoutPage } from '../../pages/CheckoutPage';
+import { Page } from '@playwright/test';
 
-test('Complete checkout flow', async ({ authenticatedPage }) => {
-  const inventory = new InventoryPage(authenticatedPage);
-  const cart = new CartPage(authenticatedPage);
-  const checkout = new CheckoutPage(authenticatedPage);
+export class CheckoutPage {
+  constructor(private page: Page) {}
 
-  await authenticatedPage.goto('/inventory.html');
+  async fillDetails() {
+    await this.page.fill('#first-name', 'Test');
+    await this.page.fill('#last-name', 'User');
+    await this.page.fill('#postal-code', '400001');
+  }
 
-  await inventory.addItem('Sauce Labs Backpack');
-  await inventory.cartIcon.click();
-
-  await cart.checkout();
-
-  await checkout.fillDetails();
-  await checkout.completeOrder();
-
-  await expect(
-    authenticatedPage.locator('text=Thank you for your order!')
-  ).toBeVisible();
-
-  //  Visual validation
-  await expect(authenticatedPage).toHaveScreenshot('order-success.png');
-});
+  async completeOrder() {
+    await this.page.click('#continue');
+    await this.page.click('#finish');
+  }
+}
