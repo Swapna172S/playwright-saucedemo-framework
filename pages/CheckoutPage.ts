@@ -1,16 +1,12 @@
-import { Page } from '@playwright/test';
 
-export class CheckoutPage {
-  constructor(private page: Page) {}
+import { test, expect } from '../../fixtures/authFixture';
+import { InventoryPage } from '../../pages/InventoryPage';
 
-  async fillDetails() {
-    await this.page.fill('#first-name', 'Test');
-    await this.page.fill('#last-name', 'User');
-    await this.page.fill('#postal-code', '400001');
-  }
+test('Add item to cart', async ({ authenticatedPage }) => {
+  const inventory = new InventoryPage(authenticatedPage);
 
-  async completeOrder() {
-    await this.page.click('#continue');
-    await this.page.click('#finish');
-  }
-}
+  await authenticatedPage.goto('/inventory.html');
+  await inventory.addItem('Sauce Labs Backpack');
+
+  await expect(inventory.cartBadge).toHaveText('1');
+});
